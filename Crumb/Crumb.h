@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @interface Crumb : NSObject
+
++ (void) startSweeping;
+
++ (void) stopSweeping;
 
 @end

@@ -23,14 +23,22 @@
 
 /* Begin PBXBuildFile section */
 		8110DA26188DED400097E73B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8110DA25188DED400097E73B /* Foundation.framework */; };
-		8110DA2B188DED400097E73B /* Crumb.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8110DA2A188DED400097E73B /* Crumb.h */; };
 		8110DA34188DED400097E73B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8110DA33188DED400097E73B /* XCTest.framework */; };
 		8110DA35188DED400097E73B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8110DA25188DED400097E73B /* Foundation.framework */; };
 		8110DA3A188DED400097E73B /* libCrumb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8110DA22188DED400097E73B /* libCrumb.a */; };
 		8110DA40188DED400097E73B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8110DA3E188DED400097E73B /* InfoPlist.strings */; };
 		8110DA42188DED400097E73B /* CrumbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA41188DED400097E73B /* CrumbTests.m */; };
 		8110DA4C188DEDF90097E73B /* Crumb.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA2A188DED400097E73B /* Crumb.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8110DA56188DF0170097E73B /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA55188DF0170097E73B /* Crumb.m */; };
+		8110DA5F188F421C0097E73B /* CrumbGimbalManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA5D188F421C0097E73B /* CrumbGimbalManager.h */; };
+		8110DA60188F421C0097E73B /* CrumbGimbalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA5E188F421C0097E73B /* CrumbGimbalManager.m */; };
+		8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */; };
+		8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */; };
+		8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */; };
+		81FD811D1890971A009E67C2 /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD811C1890971A009E67C2 /* Crumb.m */; };
+		81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */; };
+		81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD81211890F1FF009E67C2 /* CrumbConstants.h */; };
+		81FD81271890F2A1009E67C2 /* CrumbManagerGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD81251890F2A1009E67C2 /* CrumbManagerGenerator.h */; };
+		81FD81281890F2A1009E67C2 /* CrumbManagerGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD81261890F2A1009E67C2 /* CrumbManagerGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,19 +58,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		8110DA20188DED400097E73B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				8110DA2B188DED400097E73B /* Crumb.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		8110DA22188DED400097E73B /* libCrumb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCrumb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8110DA25188DED400097E73B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,7 +68,17 @@
 		8110DA3D188DED400097E73B /* CrumbTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrumbTests-Info.plist"; sourceTree = "<group>"; };
 		8110DA3F188DED400097E73B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8110DA41188DED400097E73B /* CrumbTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrumbTests.m; sourceTree = "<group>"; };
-		8110DA55188DF0170097E73B /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
+		8110DA5D188F421C0097E73B /* CrumbGimbalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalManager.h; sourceTree = "<group>"; };
+		8110DA5E188F421C0097E73B /* CrumbGimbalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbGimbalManager.m; sourceTree = "<group>"; };
+		8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalConstants.h; sourceTree = "<group>"; };
+		8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalBeaconDelegate.h; sourceTree = "<group>"; };
+		8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbGimbalBeaconDelegate.m; sourceTree = "<group>"; };
+		8110DA6D188F65F60097E73B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = ../../../Downloads/gimbalsdk_1.10_ios/Frameworks/FYX.framework; sourceTree = "<group>"; };
+		81FD811C1890971A009E67C2 /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
+		81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbManagerDelegate.h; sourceTree = "<group>"; };
+		81FD81211890F1FF009E67C2 /* CrumbConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbConstants.h; sourceTree = "<group>"; };
+		81FD81251890F2A1009E67C2 /* CrumbManagerGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbManagerGenerator.h; sourceTree = "<group>"; };
+		81FD81261890F2A1009E67C2 /* CrumbManagerGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbManagerGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,7 @@
 		8110DA24188DED400097E73B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8110DA6D188F65F60097E73B /* FYX.framework */,
 				8110DA25188DED400097E73B /* Foundation.framework */,
 				8110DA33188DED400097E73B /* XCTest.framework */,
 			);
@@ -130,7 +136,13 @@
 			isa = PBXGroup;
 			children = (
 				8110DA2A188DED400097E73B /* Crumb.h */,
-				8110DA55188DF0170097E73B /* Crumb.m */,
+				81FD811C1890971A009E67C2 /* Crumb.m */,
+				81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */,
+				81FD81211890F1FF009E67C2 /* CrumbConstants.h */,
+				81FD81251890F2A1009E67C2 /* CrumbManagerGenerator.h */,
+				81FD81261890F2A1009E67C2 /* CrumbManagerGenerator.m */,
+				81FD812018909E3D009E67C2 /* IBeacon */,
+				8110DA6F1890918B0097E73B /* Gimbal */,
 				8110DA28188DED400097E73B /* Supporting Files */,
 			);
 			path = Crumb;
@@ -162,6 +174,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8110DA6F1890918B0097E73B /* Gimbal */ = {
+			isa = PBXGroup;
+			children = (
+				8110DA5D188F421C0097E73B /* CrumbGimbalManager.h */,
+				8110DA5E188F421C0097E73B /* CrumbGimbalManager.m */,
+				8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */,
+				8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */,
+				8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */,
+			);
+			name = Gimbal;
+			sourceTree = "<group>";
+		};
+		81FD812018909E3D009E67C2 /* IBeacon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IBeacon;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -169,6 +200,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */,
+				81FD81271890F2A1009E67C2 /* CrumbManagerGenerator.h in Headers */,
+				8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */,
+				81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */,
+				8110DA5F188F421C0097E73B /* CrumbGimbalManager.h in Headers */,
+				81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */,
 				8110DA4C188DEDF90097E73B /* Crumb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +219,6 @@
 			buildPhases = (
 				8110DA1E188DED400097E73B /* Sources */,
 				8110DA1F188DED400097E73B /* Frameworks */,
-				8110DA20188DED400097E73B /* CopyFiles */,
 				8110DA4B188DEDCA0097E73B /* Headers */,
 				8110DA4D188DEE770097E73B /* Prepare Framework */,
 			);
@@ -288,7 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8110DA56188DF0170097E73B /* Crumb.m in Sources */,
+				81FD811D1890971A009E67C2 /* Crumb.m in Sources */,
+				81FD81281890F2A1009E67C2 /* CrumbManagerGenerator.m in Sources */,
+				8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */,
+				8110DA60188F421C0097E73B /* CrumbGimbalManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +442,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/Crumb.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/arpanghosh/Downloads/gimbalsdk_proximity_0.21.1_ios/fyx-ios-sdk",
+					/Users/arpanghosh/Downloads/gimbalsdk_1.10_ios/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crumb/Crumb-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -419,6 +463,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/Crumb.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/arpanghosh/Downloads/gimbalsdk_proximity_0.21.1_ios/fyx-ios-sdk",
+					/Users/arpanghosh/Downloads/gimbalsdk_1.10_ios/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crumb/Crumb-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -500,6 +549,7 @@
 				8110DA47188DED400097E73B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8110DA48188DED400097E73B /* Build configuration list for PBXNativeTarget "CrumbTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +558,7 @@
 				8110DA4A188DED400097E73B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8110DA4F188DEF8B0097E73B /* Build configuration list for PBXAggregateTarget "Framework" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +567,7 @@
 				8110DA51188DEF8B0097E73B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
