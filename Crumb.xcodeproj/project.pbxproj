@@ -34,6 +34,14 @@
 		8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */; };
 		8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */; };
 		8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */; };
+		819A997B1891080E00B1D3E0 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A997A1891080E00B1D3E0 /* FYX.framework */; };
+		819A997F1891082100B1D3E0 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A997D1891082100B1D3E0 /* Common.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		819A99831891083500B1D3E0 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A99811891083500B1D3E0 /* NetworkServices.framework */; };
+		819A99851891093A00B1D3E0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A99841891093A00B1D3E0 /* CoreBluetooth.framework */; };
+		819A99871891094400B1D3E0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819A99861891094400B1D3E0 /* Security.framework */; };
+		81D7738C1892137600B7219D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7738B1892137600B7219D /* CoreData.framework */; };
+		81D7738E1892139100B7219D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7738D1892139100B7219D /* CoreLocation.framework */; };
+		81D77390189213A500B7219D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7738F189213A500B7219D /* libz.dylib */; };
 		81FD811D1890971A009E67C2 /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD811C1890971A009E67C2 /* Crumb.m */; };
 		81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */; };
 		81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD81211890F1FF009E67C2 /* CrumbConstants.h */; };
@@ -73,7 +81,14 @@
 		8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalConstants.h; sourceTree = "<group>"; };
 		8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalBeaconDelegate.h; sourceTree = "<group>"; };
 		8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbGimbalBeaconDelegate.m; sourceTree = "<group>"; };
-		8110DA6D188F65F60097E73B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = ../../../Downloads/gimbalsdk_1.10_ios/Frameworks/FYX.framework; sourceTree = "<group>"; };
+		819A997A1891080E00B1D3E0 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		819A997D1891082100B1D3E0 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		819A99811891083500B1D3E0 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		819A99841891093A00B1D3E0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		819A99861891094400B1D3E0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		81D7738B1892137600B7219D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		81D7738D1892139100B7219D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81D7738F189213A500B7219D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		81FD811C1890971A009E67C2 /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
 		81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbManagerDelegate.h; sourceTree = "<group>"; };
 		81FD81211890F1FF009E67C2 /* CrumbConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbConstants.h; sourceTree = "<group>"; };
@@ -86,7 +101,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D77390189213A500B7219D /* libz.dylib in Frameworks */,
+				81D7738E1892139100B7219D /* CoreLocation.framework in Frameworks */,
+				81D7738C1892137600B7219D /* CoreData.framework in Frameworks */,
+				819A99871891094400B1D3E0 /* Security.framework in Frameworks */,
+				819A99851891093A00B1D3E0 /* CoreBluetooth.framework in Frameworks */,
+				819A997F1891082100B1D3E0 /* Common.framework in Frameworks */,
+				819A997B1891080E00B1D3E0 /* FYX.framework in Frameworks */,
 				8110DA26188DED400097E73B /* Foundation.framework in Frameworks */,
+				819A99831891083500B1D3E0 /* NetworkServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +148,14 @@
 		8110DA24188DED400097E73B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8110DA6D188F65F60097E73B /* FYX.framework */,
+				81D7738F189213A500B7219D /* libz.dylib */,
+				81D7738D1892139100B7219D /* CoreLocation.framework */,
+				81D7738B1892137600B7219D /* CoreData.framework */,
+				819A99861891094400B1D3E0 /* Security.framework */,
+				819A99841891093A00B1D3E0 /* CoreBluetooth.framework */,
+				819A99801891083500B1D3E0 /* NetworkServices.embeddedframework */,
+				819A997C1891082100B1D3E0 /* Common.embeddedframework */,
+				819A997A1891080E00B1D3E0 /* FYX.framework */,
 				8110DA25188DED400097E73B /* Foundation.framework */,
 				8110DA33188DED400097E73B /* XCTest.framework */,
 			);
@@ -184,6 +214,38 @@
 				8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */,
 			);
 			name = Gimbal;
+			sourceTree = "<group>";
+		};
+		819A997C1891082100B1D3E0 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				819A997D1891082100B1D3E0 /* Common.framework */,
+				819A997E1891082100B1D3E0 /* Resources */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		819A997E1891082100B1D3E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		819A99801891083500B1D3E0 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				819A99811891083500B1D3E0 /* NetworkServices.framework */,
+				819A99821891083500B1D3E0 /* Resources */,
+			);
+			path = NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		819A99821891083500B1D3E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		81FD812018909E3D009E67C2 /* IBeacon */ = {
@@ -446,6 +508,9 @@
 					"$(inherited)",
 					"/Users/arpanghosh/Downloads/gimbalsdk_proximity_0.21.1_ios/fyx-ios-sdk",
 					/Users/arpanghosh/Downloads/gimbalsdk_1.10_ios/Frameworks,
+					/Users/arpanghosh/Developer/iOS/Crumb,
+					/Users/arpanghosh/Developer/iOS/Crumb/Common.embeddedframework,
+					/Users/arpanghosh/Developer/iOS/Crumb/NetworkServices.embeddedframework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crumb/Crumb-Prefix.pch";
@@ -467,6 +532,9 @@
 					"$(inherited)",
 					"/Users/arpanghosh/Downloads/gimbalsdk_proximity_0.21.1_ios/fyx-ios-sdk",
 					/Users/arpanghosh/Downloads/gimbalsdk_1.10_ios/Frameworks,
+					/Users/arpanghosh/Developer/iOS/Crumb,
+					/Users/arpanghosh/Developer/iOS/Crumb/Common.embeddedframework,
+					/Users/arpanghosh/Developer/iOS/Crumb/NetworkServices.embeddedframework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Crumb/Crumb-Prefix.pch";
