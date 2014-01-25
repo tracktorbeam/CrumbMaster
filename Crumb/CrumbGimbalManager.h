@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import <FYX/FYX.h>
-#import <FYX/FYXSightingManager.h>
-#import <FYX/FYXVisitManager.h>
-#import <FYX/FYXLogging.h>
+#import <GimbalProximity/FYX.h>
+#import <GimbalProximity/FYXSightingManager.h>
+#import <GimbalProximity/FYXVisitManager.h>
+#import <GimbalProximity/FYXLogging.h>
 
 #import "CrumbManagerDelegate.h"
 #import "CrumbConstants.h"
