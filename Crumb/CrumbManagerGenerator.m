@@ -8,15 +8,15 @@
 
 #import "CrumbManagerGenerator.h"
 
-
 @implementation CrumbManagerGenerator
 
 #pragma mark - Public Methods
 
-+(NSDictionary *)getCrumbManagers{
++(NSArray *)getCrumbManagers{
     //Fetch from backend.
     
-    return @{CRUMB_SERVICE_GIMBAL_NAME : [CrumbGimbalManager getCrumbManager]};
+    return @[[CrumbGimbalManager getCrumbManager],
+             [CrumbIBeaconManager getCrumbManager]];
 }
 
 @end

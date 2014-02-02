@@ -18,8 +18,8 @@
 @property (nonatomic) BOOL gimbalServiceActive;
 @property (nonatomic) BOOL gimbalBeaconScanningActive;
 
-@property (nonatomic, weak) void (^successCallback)(NSDictionary *);
-@property (nonatomic, weak) void (^failureCallback)(NSDictionary *, NSError *);
+@property (nonatomic, weak) void (^successCallback)(void);
+@property (nonatomic, weak) void (^failureCallback)(NSError *);
 
 @end
 
@@ -31,7 +31,7 @@
 
 -(void)serviceStarted{
     self.gimbalServiceActive = YES;
-    self.successCallback(@{CRUMB_SERVICE_NAME_KEY : CRUMB_SERVICE_GIMBAL_NAME});
+    self.successCallback();
     NSLog(@"App Info :\n%@", [FYX currentAppInfo]);
     
     [self startBeaconScanning];
@@ -39,7 +39,7 @@
 
 -(void)startServiceFailed:(NSError *)error{
     [self stopService];
-    self.failureCallback(@{CRUMB_SERVICE_NAME_KEY : CRUMB_SERVICE_GIMBAL_NAME}, error);
+    self.failureCallback(error);
 }
 
 
@@ -54,8 +54,8 @@
     return singletonCrumbGimbalManager;
 }
 
--(void)startServiceWithSuccess:(void (^)(NSDictionary *response))successCallback
-                   withFailure:(void (^)(NSDictionary *response, NSError *error))failureCallback{
+-(void)startServiceWithSuccess:(void (^)(void))successCallback
+                   withFailure:(void (^)(NSError *error))failureCallback{
     self.successCallback = successCallback;
     self.failureCallback = failureCallback;
     [self startGimbal];
@@ -71,6 +71,10 @@
 
 -(BOOL)beaconScanningActive{
     return self.gimbalBeaconScanningActive;
+}
+
+-(NSString *)serviceName{
+    return CRUMB_SERVICE_GIMBAL_NAME;
 }
 
 

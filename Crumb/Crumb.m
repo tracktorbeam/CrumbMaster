@@ -8,7 +8,6 @@
 
 #import "Crumb.h"
 #import "CrumbManagerDelegate.h"
-#import "CrumbConstants.h"
 #import "CrumbManagerGenerator.h"
 
 
@@ -17,21 +16,21 @@
 #pragma mark - Public Methods
 
 + (void) startSweeping{
-    for(id<CrumbManagerDelegate> crumbManager in
-        [[CrumbManagerGenerator getCrumbManagers] allValues]){
-        [crumbManager startServiceWithSuccess:^(NSDictionary *response) {
-            NSLog(@"%@ : Service started successfully", response[CRUMB_SERVICE_NAME_KEY]);
-        } withFailure:^(NSDictionary *response, NSError *error) {
-            NSLog(@"%@ : Service failed to start with error :\n%@", response[CRUMB_SERVICE_NAME_KEY], error);
+    _.array([CrumbManagerGenerator getCrumbManagers])
+    .each(^(id<CrumbManagerDelegate> crumbManager){
+        [crumbManager startServiceWithSuccess:^{
+            NSLog(@"%@ : Service started successfully", [crumbManager serviceName]);
+        } withFailure:^(NSError *error) {
+            NSLog(@"%@ : Service failed to start with error :\n%@", [crumbManager serviceName], error);
         }];
-    }
+    });
 }
 
 + (void) stopSweeping{
-    for(id<CrumbManagerDelegate> crumbManager in
-        [[CrumbManagerGenerator getCrumbManagers] allValues]){
+    _.array([CrumbManagerGenerator getCrumbManagers])
+    .each(^(id<CrumbManagerDelegate> crumbManager){
         [crumbManager stopService];
-    }
+    });
 }
 
 @end

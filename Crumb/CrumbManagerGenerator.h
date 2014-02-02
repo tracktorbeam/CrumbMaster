@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "CrumbConstants.h"
 #import "CrumbGimbalManager.h"
+#import "CrumbIBeaconManager.h"
 
 @interface CrumbManagerGenerator : NSObject
 
-+(NSDictionary *)getCrumbManagers;
++(NSArray *)getCrumbManagers;
 
 @end

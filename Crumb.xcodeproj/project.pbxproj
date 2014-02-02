@@ -35,6 +35,15 @@
 		8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */; };
 		8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */; };
 		8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */; };
+		8158D462189DF5C1004FD9AF /* CrumbIBeaconDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */; };
+		8158D463189DF5C1004FD9AF /* CrumbIBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */; };
+		81D773951893829B00B7219D /* CrumbIBeaconManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D773931893829B00B7219D /* CrumbIBeaconManager.h */; };
+		81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D773941893829B00B7219D /* CrumbIBeaconManager.m */; };
+		81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7739B1893903E00B7219D /* CoreLocation.framework */; };
+		81D7739E1893904300B7219D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7739D1893904300B7219D /* UIKit.framework */; };
+		81D773A11893A58D00B7219D /* CrumbIBeaconRegionDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D7739F1893A58D00B7219D /* CrumbIBeaconRegionDirectory.h */; };
+		81D773A21893A58D00B7219D /* CrumbIBeaconRegionDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D773A01893A58D00B7219D /* CrumbIBeaconRegionDirectory.m */; };
+		81D773A51893A64600B7219D /* CrumbIBeaconConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D773A31893A64600B7219D /* CrumbIBeaconConstants.h */; };
 		81FD811D1890971A009E67C2 /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FD811C1890971A009E67C2 /* Crumb.m */; };
 		81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */; };
 		81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FD81211890F1FF009E67C2 /* CrumbConstants.h */; };
@@ -75,6 +84,16 @@
 		8110DA61188F441A0097E73B /* CrumbGimbalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalConstants.h; sourceTree = "<group>"; };
 		8110DA69188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbGimbalBeaconDelegate.h; sourceTree = "<group>"; };
 		8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbGimbalBeaconDelegate.m; sourceTree = "<group>"; };
+		8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconDelegate.h; sourceTree = "<group>"; };
+		8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconDelegate.m; sourceTree = "<group>"; };
+		8158D464189DFF0F004FD9AF /* CrumbIBeaconRegionMonitoringAndRangingControlDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconRegionMonitoringAndRangingControlDelegate.h; sourceTree = "<group>"; };
+		81D773931893829B00B7219D /* CrumbIBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconManager.h; sourceTree = "<group>"; };
+		81D773941893829B00B7219D /* CrumbIBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconManager.m; sourceTree = "<group>"; };
+		81D7739B1893903E00B7219D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81D7739D1893904300B7219D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		81D7739F1893A58D00B7219D /* CrumbIBeaconRegionDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconRegionDirectory.h; sourceTree = "<group>"; };
+		81D773A01893A58D00B7219D /* CrumbIBeaconRegionDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconRegionDirectory.m; sourceTree = "<group>"; };
+		81D773A31893A64600B7219D /* CrumbIBeaconConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconConstants.h; sourceTree = "<group>"; };
 		81FD811C1890971A009E67C2 /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
 		81FD811E18909ABF009E67C2 /* CrumbManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbManagerDelegate.h; sourceTree = "<group>"; };
 		81FD81211890F1FF009E67C2 /* CrumbConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbConstants.h; sourceTree = "<group>"; };
@@ -88,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D7739E1893904300B7219D /* UIKit.framework in Frameworks */,
+				81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */,
 				8110DA26188DED400097E73B /* Foundation.framework in Frameworks */,
 				1037B6D3699A4DF19809197C /* libPods.a in Frameworks */,
 			);
@@ -129,6 +150,8 @@
 		8110DA24188DED400097E73B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81D7739D1893904300B7219D /* UIKit.framework */,
+				81D7739B1893903E00B7219D /* CoreLocation.framework */,
 				8110DA25188DED400097E73B /* Foundation.framework */,
 				8110DA33188DED400097E73B /* XCTest.framework */,
 				DBDC405C35DB4622A79E0048 /* libPods.a */,
@@ -193,6 +216,14 @@
 		81FD812018909E3D009E67C2 /* IBeacon */ = {
 			isa = PBXGroup;
 			children = (
+				81D773931893829B00B7219D /* CrumbIBeaconManager.h */,
+				81D773941893829B00B7219D /* CrumbIBeaconManager.m */,
+				81D7739F1893A58D00B7219D /* CrumbIBeaconRegionDirectory.h */,
+				81D773A01893A58D00B7219D /* CrumbIBeaconRegionDirectory.m */,
+				81D773A31893A64600B7219D /* CrumbIBeaconConstants.h */,
+				8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */,
+				8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */,
+				8158D464189DFF0F004FD9AF /* CrumbIBeaconRegionMonitoringAndRangingControlDelegate.h */,
 			);
 			name = IBeacon;
 			sourceTree = "<group>";
@@ -204,10 +235,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D773951893829B00B7219D /* CrumbIBeaconManager.h in Headers */,
 				8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */,
 				81FD81271890F2A1009E67C2 /* CrumbManagerGenerator.h in Headers */,
 				8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */,
+				81D773A11893A58D00B7219D /* CrumbIBeaconRegionDirectory.h in Headers */,
+				8158D462189DF5C1004FD9AF /* CrumbIBeaconDelegate.h in Headers */,
 				81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */,
+				81D773A51893A64600B7219D /* CrumbIBeaconConstants.h in Headers */,
 				8110DA5F188F421C0097E73B /* CrumbGimbalManager.h in Headers */,
 				81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */,
 				8110DA4C188DEDF90097E73B /* Crumb.h in Headers */,
@@ -361,8 +396,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FD811D1890971A009E67C2 /* Crumb.m in Sources */,
+				81D773A21893A58D00B7219D /* CrumbIBeaconRegionDirectory.m in Sources */,
 				81FD81281890F2A1009E67C2 /* CrumbManagerGenerator.m in Sources */,
 				8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */,
+				81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */,
+				8158D463189DF5C1004FD9AF /* CrumbIBeaconDelegate.m in Sources */,
 				8110DA60188F421C0097E73B /* CrumbGimbalManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

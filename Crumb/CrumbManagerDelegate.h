@@ -11,10 +11,11 @@
 @required
 
 +(instancetype)getCrumbManager;
--(void)startServiceWithSuccess:(void (^)(NSDictionary *response))successCallback
-                   withFailure:(void (^)(NSDictionary *response, NSError *error))failureCallback;
+-(void)startServiceWithSuccess:(void (^)(void))successCallback
+                   withFailure:(void (^)(NSError *error))failureCallback;
 -(void)stopService;
 -(BOOL)serviceActive;
 -(BOOL)beaconScanningActive;
+-(NSString *)serviceName;
 
 @end

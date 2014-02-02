@@ -10,5 +10,3 @@
 #define CRUMB_SERVICE_GIMBAL_NAME @"gimbal"
 #define CRUMB_SERVICE_IBEACON_NAME @"ibeacon"
 
-#define CRUMB_SERVICE_NAME_KEY @"service_name"
-
