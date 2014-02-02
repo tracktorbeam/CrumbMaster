@@ -14,8 +14,6 @@
 -(void)startServiceWithSuccess:(void (^)(void))successCallback
                    withFailure:(void (^)(NSError *error))failureCallback;
 -(void)stopService;
--(BOOL)serviceActive;
--(BOOL)beaconScanningActive;
 -(NSString *)serviceName;
 
 @end

@@ -11,11 +11,11 @@
 
 @interface CrumbIBeaconRegionDirectory : NSObject
 
-+ (NSArray *)getRegionWhitelist;
++ (NSArray *)getBeaconRegionWhitelist;
 
-+ (NSArray *)getRegionBlacklist;
++ (NSArray *)getBeaconRegionBlacklist;
 
-+ (NSDictionary *)getCurrentlyMonitoredCrumbRegionsFromBeaconManager:(CLLocationManager *)beaconManager;
++ (NSDictionary *)getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:(CLLocationManager *)beaconManager;
 
 + (BOOL) isAValidCrumbBeaconRegion:(CLRegion *)region;
 

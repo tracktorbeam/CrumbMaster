@@ -12,23 +12,16 @@
 
 #pragma mark - CLLocationManagerDelegate Methods
 
-//Do we need this callback?
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region{
-    if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
-        NSLog(@"Started monitoring for region : %@", region.identifier);
-    }
-}
-
 -(void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
-        [manager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
+        [[CrumbIBeaconManager getCrumbManager] startRangingInBeaconRegion:(CLBeaconRegion *)region];
         NSLog(@"Entered region %@ and started ranging", region.identifier);
     }
 }
 
 -(void) locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region{
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
-        [manager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
+        [[CrumbIBeaconManager getCrumbManager] stopRangingInBeaconRegion:(CLBeaconRegion *)region];
         NSLog(@"Exited region %@ and stopped ranging", region.identifier);
     }
 }
@@ -88,8 +81,6 @@ monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error{
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
         NSLog(@"Error monitoring region %@.\n%@", region.identifier,
               [error localizedDescription]);
-        [[CrumbIBeaconManager getCrumbManager]
-         stopMonitoringBeaconRegion:(CLBeaconRegion *)region];
     }
 }
 

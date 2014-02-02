@@ -1,5 +1,5 @@
 //
-//  CrumbIBeaconRegionMonitoringAndRangingControlDelegate.h
+//  CrumbIBeaconRegionRangingControlDelegate.h
 //  Crumb
 //
 //  Created by Arpan Ghosh on 2/1/14.
@@ -10,11 +10,11 @@
 #import "CrumbIBeaconManager.h"
 
 
-@protocol CrumbIBeaconRegionMonitoringAndRangingControlDelegate <NSObject>
+@protocol CrumbIBeaconRegionRangingControlDelegate <NSObject>
 @required
 
+-(void)startRangingInBeaconRegion:(CLBeaconRegion *)beaconRegion;
 -(void)stopRangingInBeaconRegion:(CLBeaconRegion *)beaconRegion;
 -(void)stopRangingBeacons;
--(void)stopMonitoringBeaconRegion:(CLBeaconRegion *)beaconRegion;
 
 @end

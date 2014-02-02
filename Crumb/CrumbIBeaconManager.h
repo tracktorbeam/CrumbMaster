@@ -6,17 +6,13 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import <CoreLocation/CoreLocation.h>
-#import <CoreLocation/CLBeaconRegion.h>
-#import <UIKit/UIKit.h>
 
 #import "CrumbManagerDelegate.h"
 #import "CrumbIBeaconConstants.h"
 #import "CrumbIBeaconRegionDirectory.h"
 #import "CrumbIBeaconDelegate.h"
-#import "CrumbIBeaconRegionMonitoringAndRangingControlDelegate.h"
+#import "CrumbIBeaconRegionRangingControlDelegate.h"
 
-@interface CrumbIBeaconManager : NSObject <CrumbManagerDelegate,
-                                            CrumbIBeaconRegionMonitoringAndRangingControlDelegate>
+@interface CrumbIBeaconManager : NSObject <CrumbManagerDelegate, CrumbIBeaconRegionRangingControlDelegate>
 
 @end

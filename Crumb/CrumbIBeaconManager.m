@@ -16,8 +16,8 @@
 @property (nonatomic, weak) void (^successCallback)(void);
 @property (nonatomic, weak) void (^failureCallback)(NSError *);
 
-@property (nonatomic) BOOL iBeaconServiceActive;
-@property (nonatomic) BOOL iBeaconBeaconScanningActive;
+@property (nonatomic, strong) NSError *iBeaconMonitoringNotSupportedError;
+@property (nonatomic, strong) NSError *iBeaconMonitoringNotPermittedError;
 
 @end
 
@@ -46,14 +46,6 @@
     [self stopIBeacon];
 }
 
--(BOOL)serviceActive{
-    return self.iBeaconServiceActive;
-}
-
--(BOOL)beaconScanningActive{
-    return self.iBeaconBeaconScanningActive;
-}
-
 -(NSString *)serviceName{
     return CRUMB_SERVICE_IBEACON_NAME;
 }
@@ -64,9 +56,6 @@
 -(instancetype)init{
     self = [super init];
     if (self){
-        _iBeaconServiceActive = NO;
-        _iBeaconBeaconScanningActive = NO;
-        
         _iBeaconDelegate = [[CrumbIBeaconDelegate alloc] init];
         _iBeaconManager = [[CLLocationManager alloc] init];
         _iBeaconManager.activityType = CLActivityTypeFitness;
@@ -95,13 +84,42 @@
     return hasUserEnabledBackgroundAppRefresh;
 }
 
-- (BOOL) iBeaconMonitoringPossible{
-    return ([self iBeaconMonitoringSupportedByDevice] &&
-            [self iBeaconMonitoringPermittedByUser]);
+-(NSError *)iBeaconMonitoringNotSupportedError{
+    if (!_iBeaconMonitoringNotSupportedError){
+        NSDictionary* errorDetails =
+        @{NSLocalizedDescriptionKey :
+              @"iBeacon monitoring not supported on this device.",
+          NSLocalizedFailureReasonErrorKey :
+              @"Device lacks Bluetooth hardware or has iOS version older than 7.0."};
+        _iBeaconMonitoringNotSupportedError =
+        [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
+                            code:CRUMB_GENERIC_ERROR_CODE
+                        userInfo:errorDetails];
+    }
+    return _iBeaconMonitoringNotSupportedError;
+}
+
+-(NSError *)iBeaconMonitoringNotPermittedError{
+    if (!_iBeaconMonitoringNotPermittedError){
+        NSDictionary* errorDetails =
+        @{NSLocalizedDescriptionKey :
+              @"iBeacon monitoring not permitted by user.",
+          NSLocalizedFailureReasonErrorKey :
+              @"User has disabled 'Background App Refresh'."};
+        _iBeaconMonitoringNotPermittedError =
+        [NSError errorWithDomain:[[NSBundle mainBundle] bundleIdentifier]
+                            code:CRUMB_GENERIC_ERROR_CODE
+                        userInfo:errorDetails];
+    }
+    return _iBeaconMonitoringNotPermittedError;
 }
 
 
-#pragma mark - CrumbIBeaconRegionMonitoringAndRangingControlDelegate Methods
+#pragma mark - CrumbIBeaconRegionRangingControlDelegate Methods
+
+-(void)startRangingInBeaconRegion:(CLBeaconRegion *)beaconRegion{
+    [self.iBeaconManager startRangingBeaconsInRegion:beaconRegion];
+}
 
 -(void)stopRangingInBeaconRegion:(CLBeaconRegion *)beaconRegion{
     [self.iBeaconManager stopRangingBeaconsInRegion:beaconRegion];
@@ -111,18 +129,21 @@
     [self stopRangingBeaconsInAllRegions];
 }
 
--(void)stopMonitoringBeaconRegion:(CLBeaconRegion *)beaconRegion{
-    [self.iBeaconManager stopMonitoringForRegion:beaconRegion];
-}
-
 
 #pragma mark - iBeacon Start/Stop Controls
 
 -(void)startIBeacon{
-    if ([self iBeaconMonitoringPossible]) {
-        [self startMonitoringNewIBeaconRegionsInWhitelist];
-        [self stopMonitoringIBeaconRegionsInBlacklist];
+    if (![self iBeaconMonitoringSupportedByDevice]) {
+        self.failureCallback(self.iBeaconMonitoringNotSupportedError);
     }
+    
+    if (![self iBeaconMonitoringPermittedByUser]) {
+        self.failureCallback(self.iBeaconMonitoringNotPermittedError);
+    }
+    
+    [self startMonitoringNewIBeaconRegionsInWhitelist];
+    [self stopMonitoringIBeaconRegionsInBlacklist];
+    self.successCallback();
 }
 
 -(void)stopIBeacon{
@@ -133,9 +154,9 @@
 -(void)startMonitoringNewIBeaconRegionsInWhitelist{
     NSDictionary *currentlyMonitoredBeaconRegions =
     [CrumbIBeaconRegionDirectory
-     getCurrentlyMonitoredCrumbRegionsFromBeaconManager:self.iBeaconManager];
+     getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager];
     
-    _.array([CrumbIBeaconRegionDirectory getRegionWhitelist])
+    _.array([CrumbIBeaconRegionDirectory getBeaconRegionWhitelist])
     .filter(^BOOL (CLBeaconRegion *whitelistedBeaconRegion){
         return ![currentlyMonitoredBeaconRegions
                  valueForKey:whitelistedBeaconRegion.identifier];
@@ -148,9 +169,9 @@
 -(void)stopMonitoringIBeaconRegionsInBlacklist{
     NSDictionary *currentlyMonitoredBeaconRegions =
     [CrumbIBeaconRegionDirectory
-     getCurrentlyMonitoredCrumbRegionsFromBeaconManager:self.iBeaconManager];
+     getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager];
     
-    _.array([CrumbIBeaconRegionDirectory getRegionBlacklist])
+    _.array([CrumbIBeaconRegionDirectory getBeaconRegionBlacklist])
     .reject(^BOOL (CLBeaconRegion *blacklistedBeaconRegion){
         return ![currentlyMonitoredBeaconRegions
                  valueForKey:blacklistedBeaconRegion.identifier];
@@ -162,7 +183,7 @@
 
 -(void)stopMonitoringAllRegions{
     _.dict([CrumbIBeaconRegionDirectory
-     getCurrentlyMonitoredCrumbRegionsFromBeaconManager:self.iBeaconManager])
+     getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
     .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStopMonitoring){
         [self.iBeaconManager stopMonitoringForRegion:beaconRegionToStopMonitoring];
     });
@@ -170,12 +191,10 @@
 
 -(void)stopRangingBeaconsInAllRegions{
     _.dict([CrumbIBeaconRegionDirectory
-            getCurrentlyMonitoredCrumbRegionsFromBeaconManager:self.iBeaconManager])
+            getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
     .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStopMonitoring){
         [self.iBeaconManager stopRangingBeaconsInRegion:beaconRegionToStopMonitoring];
     });
 }
-
-
 
 @end

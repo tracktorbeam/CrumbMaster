@@ -31,10 +31,8 @@
 
 -(void)serviceStarted{
     self.gimbalServiceActive = YES;
+    [self startGimbalBeaconScanning];
     self.successCallback();
-    NSLog(@"App Info :\n%@", [FYX currentAppInfo]);
-    
-    [self startBeaconScanning];
 }
 
 -(void)startServiceFailed:(NSError *)error{
@@ -65,14 +63,6 @@
     [self stopGimbal];
 }
 
--(BOOL)serviceActive{
-    return self.gimbalServiceActive;
-}
-
--(BOOL)beaconScanningActive{
-    return self.gimbalBeaconScanningActive;
-}
-
 -(NSString *)serviceName{
     return CRUMB_SERVICE_GIMBAL_NAME;
 }
@@ -89,31 +79,17 @@
         [FYX setAppId:CRUMB_GIMBAL_APPLICATION_ID appSecret:CRUMB_GIMBAL_APPLICATION_SECRET callbackUrl:CRUMB_GIMBAL_CALLBACK_URL];
         [FYXLogging setLogLevel:FYX_LOG_LEVEL_VERBOSE];
         [FYXLogging enableFileLogging];
-    }
-    return self;
-}
-
--(CrumbGimbalBeaconDelegate *)crumbGimbalBeaconDelegate{
-    if(!_crumbGimbalBeaconDelegate){
+        
         _crumbGimbalBeaconDelegate = [[CrumbGimbalBeaconDelegate alloc] init];
-    }
-    return _crumbGimbalBeaconDelegate;
-}
-
--(FYXSightingManager *)gimbalSightingManager{
-    if (!_gimbalSightingManager){
+        
         _gimbalSightingManager = [FYXSightingManager new];
         _gimbalSightingManager.delegate = self.crumbGimbalBeaconDelegate;
-    }
-    return _gimbalSightingManager;
-}
-
--(FYXVisitManager *)gimbalVisitManager{
-    if (!_gimbalVisitManager){
+        
         _gimbalVisitManager = [FYXVisitManager new];
         _gimbalVisitManager.delegate = self.crumbGimbalBeaconDelegate;
+        
     }
-    return _gimbalVisitManager;
+    return self;
 }
 
 
@@ -125,17 +101,18 @@
     }
 }
 
--(void)startBeaconScanning{
+-(void)startGimbalBeaconScanning{
     if (!self.gimbalBeaconScanningActive) {
         [self.gimbalSightingManager scanWithOptions:@{FYXSightingOptionSignalStrengthWindowKey : [NSNumber numberWithInt: FYXSightingOptionSignalStrengthWindowMedium]}];
         [self.gimbalVisitManager startWithOptions:@{FYXSightingOptionSignalStrengthWindowKey: [NSNumber numberWithInt:FYXSightingOptionSignalStrengthWindowMedium],
                                                     FYXVisitOptionDepartureIntervalInSecondsKey: [NSNumber numberWithInt:CRUMB_GIMBAL_VISIT_DEPARTURE_INTERVAL_IN_SECONDS],
                                                     FYXVisitOptionArrivalRSSIKey: [NSNumber numberWithInt:CRUMB_GIMBAL_VISIT_ARRIVAL_THRESHOLD_RSSI],
                                                     FYXVisitOptionDepartureRSSIKey: [NSNumber numberWithInt:CRUMB_GIMBAL_VISIT_DEPARTURE_THRESHOLD_RSSI]}];
+        self.gimbalBeaconScanningActive = YES;
     }
 }
 
--(void)stopBeaconScanning{
+-(void)stopGimbalBeaconScanning{
     if (self.gimbalBeaconScanningActive){
         [self.gimbalVisitManager stop];
         [self.gimbalSightingManager stopScan];
@@ -146,12 +123,10 @@
 
 -(void)stopGimbal{
     if (self.gimbalServiceActive){
-        [self stopBeaconScanning];
+        [self stopGimbalBeaconScanning];
         [FYX stopService];
         self.gimbalServiceActive = NO;
     }
 }
-
-
 
 @end
