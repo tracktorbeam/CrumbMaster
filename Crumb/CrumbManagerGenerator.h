@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
+#import "Crumb.h"
+
 #import "CrumbGimbalManager.h"
 #import "CrumbIBeaconManager.h"
 

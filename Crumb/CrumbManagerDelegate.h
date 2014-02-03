@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
+#import "Crumb.h"
 
 @protocol CrumbManagerDelegate <NSObject>
 @required

@@ -17,6 +17,6 @@
 
 + (NSDictionary *)getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:(CLLocationManager *)beaconManager;
 
-+ (BOOL) isAValidCrumbBeaconRegion:(CLRegion *)region;
++ (BOOL)isAValidCrumbBeaconRegion:(CLRegion *)region;
 
 @end

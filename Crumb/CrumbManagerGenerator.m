@@ -13,7 +13,7 @@
 #pragma mark - Public Methods
 
 +(NSArray *)getCrumbManagers{
-    //Fetch from backend.
+#warning "Need to fetch initial config from backend before deciding which CrumbManagers to generate."
     
     /*
     return @[[CrumbGimbalManager getCrumbManager],

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <GimbalProximity/FYX.h>
 #import <GimbalProximity/FYXSightingManager.h>
 #import <GimbalProximity/FYXVisitManager.h>
