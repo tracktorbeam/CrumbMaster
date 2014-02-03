@@ -15,10 +15,5 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
-    #import <Underscore.m/Underscore.h>
-    #define _ Underscore
-    #import <CoreLocation/CoreLocation.h>    
-
-    #import "CrumbConstants.h"
 #endif
 

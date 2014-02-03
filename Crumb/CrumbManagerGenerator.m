@@ -15,8 +15,12 @@
 +(NSArray *)getCrumbManagers{
     //Fetch from backend.
     
+    /*
     return @[[CrumbGimbalManager getCrumbManager],
              [CrumbIBeaconManager getCrumbManager]];
+     */
+    
+    return @[[CrumbIBeaconManager getCrumbManager]];
 }
 
 @end

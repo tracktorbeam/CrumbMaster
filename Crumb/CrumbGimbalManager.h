@@ -12,6 +12,7 @@
 #import <GimbalProximity/FYXLogging.h>
 
 #import "CrumbManagerDelegate.h"
+#import "CrumbConstants.h"
 #import "CrumbGimbalConstants.h"
 #import "CrumbGimbalBeaconDelegate.h"
 

@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+#import <Underscore.m/Underscore.h>
+
 
 #import "CrumbManagerDelegate.h"
+#import "CrumbConstants.h"
 #import "CrumbIBeaconConstants.h"
 #import "CrumbIBeaconRegionDirectory.h"
 #import "CrumbIBeaconDelegate.h"

@@ -78,7 +78,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:CRUMB_GIMBAL_POST_TO_SERVER_INTERVAL_IN_SECONDS_VALUE forKey:CRUMB_GIMBAL_POST_TO_SERVER_INTERVAL_IN_SECONDS_KEY];
         [FYX setAppId:CRUMB_GIMBAL_APPLICATION_ID appSecret:CRUMB_GIMBAL_APPLICATION_SECRET callbackUrl:CRUMB_GIMBAL_CALLBACK_URL];
         [FYXLogging setLogLevel:FYX_LOG_LEVEL_VERBOSE];
-        [FYXLogging enableFileLogging];
+        //[FYXLogging enableFileLogging];
         
         _crumbGimbalBeaconDelegate = [[CrumbGimbalBeaconDelegate alloc] init];
         

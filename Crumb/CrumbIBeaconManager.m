@@ -156,7 +156,7 @@
     [CrumbIBeaconRegionDirectory
      getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager];
     
-    _.array([CrumbIBeaconRegionDirectory getBeaconRegionWhitelist])
+    Underscore.array([CrumbIBeaconRegionDirectory getBeaconRegionWhitelist])
     .filter(^BOOL (CLBeaconRegion *whitelistedBeaconRegion){
         return ![currentlyMonitoredBeaconRegions
                  valueForKey:whitelistedBeaconRegion.identifier];
@@ -171,7 +171,7 @@
     [CrumbIBeaconRegionDirectory
      getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager];
     
-    _.array([CrumbIBeaconRegionDirectory getBeaconRegionBlacklist])
+    Underscore.array([CrumbIBeaconRegionDirectory getBeaconRegionBlacklist])
     .reject(^BOOL (CLBeaconRegion *blacklistedBeaconRegion){
         return ![currentlyMonitoredBeaconRegions
                  valueForKey:blacklistedBeaconRegion.identifier];
@@ -182,7 +182,7 @@
 }
 
 -(void)stopMonitoringAllRegions{
-    _.dict([CrumbIBeaconRegionDirectory
+    Underscore.dict([CrumbIBeaconRegionDirectory
      getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
     .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStopMonitoring){
         [self.iBeaconManager stopMonitoringForRegion:beaconRegionToStopMonitoring];
@@ -190,7 +190,7 @@
 }
 
 -(void)stopRangingBeaconsInAllRegions{
-    _.dict([CrumbIBeaconRegionDirectory
+    Underscore.dict([CrumbIBeaconRegionDirectory
             getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
     .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStopMonitoring){
         [self.iBeaconManager stopRangingBeaconsInRegion:beaconRegionToStopMonitoring];

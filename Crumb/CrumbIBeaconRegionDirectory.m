@@ -25,7 +25,7 @@
 + (NSDictionary *)getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:(CLLocationManager *)beaconManager{
     NSMutableDictionary *currentlyMonitoredBeaconRegions =
     [[NSMutableDictionary alloc] init];
-    _.array([beaconManager.monitoredRegions allObjects])
+    Underscore.array([beaconManager.monitoredRegions allObjects])
     .filter(^BOOL(CLRegion *region){
         return ([region isMemberOfClass:[CLBeaconRegion class]]);
     })
@@ -38,7 +38,7 @@
 
 + (BOOL)isAValidCrumbBeaconRegion:(CLRegion *)region{
     if ([region isMemberOfClass:[CLBeaconRegion class]]) {
-        return (_.array([CrumbIBeaconRegionDirectory getBeaconRegionWhitelist])
+        return (Underscore.array([CrumbIBeaconRegionDirectory getBeaconRegionWhitelist])
                 .find(^BOOL(CLBeaconRegion *whitelistedBeaconRegion){
             return [whitelistedBeaconRegion.identifier isEqualToString:region.identifier];
         }) != nil);

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
+#import <Underscore.m/Underscore.h>
+
 #import "Crumb.h"
 #import "CrumbManagerDelegate.h"
 #import "CrumbManagerGenerator.h"
@@ -16,7 +18,7 @@
 #pragma mark - Public Methods
 
 + (void) startSweeping{
-    _.array([CrumbManagerGenerator getCrumbManagers])
+    Underscore.array([CrumbManagerGenerator getCrumbManagers])
     .each(^(id<CrumbManagerDelegate> crumbManager){
         [crumbManager startServiceWithSuccess:^{
             NSLog(@"%@ : Service started successfully", [crumbManager serviceName]);
@@ -27,7 +29,7 @@
 }
 
 + (void) stopSweeping{
-    _.array([CrumbManagerGenerator getCrumbManagers])
+    Underscore.array([CrumbManagerGenerator getCrumbManagers])
     .each(^(id<CrumbManagerDelegate> crumbManager){
         [crumbManager stopService];
     });
