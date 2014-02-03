@@ -11,8 +11,10 @@
 @implementation CrumbIBeaconRegionDirectory
 
 + (NSArray *)getBeaconRegionWhitelist{
-    return @[[[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:CRUMB_IBEACON_REGION_UUID_ALL]
-                                                identifier:CRUMB_IBEACON_REGION_IDENTIFIER_ALL]];
+    CLBeaconRegion *all = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:CRUMB_IBEACON_REGION_UUID_ALL]
+                                                             identifier:CRUMB_IBEACON_REGION_IDENTIFIER_ALL];
+    all.notifyEntryStateOnDisplay = YES;
+    return @[all];
 }
 
 + (NSArray *)getBeaconRegionBlacklist{
@@ -46,5 +48,6 @@
         return NO;
     }
 }
+
 
 @end
