@@ -16,6 +16,8 @@
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
         [[CrumbIBeaconManager getCrumbManager] startRangingInBeaconRegion:(CLBeaconRegion *)region];
         NSLog(@"Entered region %@ and started ranging", region.identifier);
+        [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconRegion:region.identifier
+                                                                Occupancy:YES];
     }
 }
 
@@ -23,22 +25,29 @@
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
         [[CrumbIBeaconManager getCrumbManager] stopRangingInBeaconRegion:(CLBeaconRegion *)region];
         NSLog(@"Exited region %@ and stopped ranging", region.identifier);
+        [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconRegion:region.identifier
+                                                                Occupancy:NO];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
       didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region{
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
-        NSLog(@"Did determine state for region %@", region.identifier);
         switch (state) {
             case CLRegionStateInside:
-                NSLog(@"Inside");
+                NSLog(@"Did determine state for region %@ : Inside", region.identifier);
+                [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconRegion:region.identifier
+                                                                        Occupancy:YES];
                 break;
             case CLRegionStateOutside:
-                NSLog(@"Outside");
+                NSLog(@"Did determine state for region %@ : Outside", region.identifier);
+                [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconRegion:region.identifier
+                                                                        Occupancy:NO];
                 break;
             case CLRegionStateUnknown:
-                NSLog(@"Unknown");
+                NSLog(@"Did determine state for region %@ : Unknown", region.identifier);
+                [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconRegion:region.identifier
+                                                                        Occupancy:NO];
                 break;
         }
     }
@@ -46,33 +55,11 @@
 
 - (void) locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons
                 inRegion:(CLBeaconRegion *)region{
-    
-    for (CLBeacon *beacon in beacons){
-        NSLog(@"\n\n\nBeacon in region : %@\nUUID : %@\nMajor : %@\nMinor : %@\nAccuracy : %f\nRssi : %ld\n\n\n",
-              region.identifier,
-              beacon.proximityUUID.UUIDString,
-              [beacon.major stringValue],
-              [beacon.minor stringValue],
-              beacon.accuracy,
-              (long)beacon.rssi);
-        
-        switch (beacon.proximity) {
-            case CLProximityUnknown:
-                NSLog(@"Proximity unknown");
-                break;
-            case CLProximityFar:
-                NSLog(@"Proximity far");
-                break;
-            case CLProximityNear:
-                NSLog(@"Proximity near");
-                break;
-            case CLProximityImmediate:
-                NSLog(@"Proximity Immediate");
-                break;
-            default:
-                break;
-        }
-    }
+    Underscore.array(beacons)
+    .each(^(CLBeacon *beacon){
+        NSLog(@"Ranged a beacon in region : %@", region.identifier);
+        [[CrumbIBeaconUploader getCrumbIBeaconUploader] stageBeaconSighting:beacon];
+    });
 }
 
 //Do we need to stop monitoring a region ever?
@@ -128,5 +115,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
             break;
     }
 }
+
+
 
 @end

@@ -37,6 +37,11 @@
 		8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110DA6A188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m */; };
 		8158D462189DF5C1004FD9AF /* CrumbIBeaconDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */; };
 		8158D463189DF5C1004FD9AF /* CrumbIBeaconDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */; };
+		8158D46A189F45B7004FD9AF /* CrumbIBeaconUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */; };
+		8158D46B189F45B7004FD9AF /* CrumbIBeaconUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */; };
+		8158D476189F6377004FD9AF /* CLBeacon+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D474189F6377004FD9AF /* CLBeacon+JSON.h */; };
+		8158D477189F6377004FD9AF /* CLBeacon+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D475189F6377004FD9AF /* CLBeacon+JSON.m */; };
+		8158D479189F6A20004FD9AF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8158D478189F6A20004FD9AF /* AdSupport.framework */; };
 		81D773951893829B00B7219D /* CrumbIBeaconManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D773931893829B00B7219D /* CrumbIBeaconManager.h */; };
 		81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D773941893829B00B7219D /* CrumbIBeaconManager.m */; };
 		81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7739B1893903E00B7219D /* CoreLocation.framework */; };
@@ -87,6 +92,11 @@
 		8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconDelegate.h; sourceTree = "<group>"; };
 		8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconDelegate.m; sourceTree = "<group>"; };
 		8158D464189DFF0F004FD9AF /* CrumbIBeaconRegionRangingControlDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconRegionRangingControlDelegate.h; sourceTree = "<group>"; };
+		8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconUploader.h; sourceTree = "<group>"; };
+		8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconUploader.m; sourceTree = "<group>"; };
+		8158D474189F6377004FD9AF /* CLBeacon+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLBeacon+JSON.h"; sourceTree = "<group>"; };
+		8158D475189F6377004FD9AF /* CLBeacon+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLBeacon+JSON.m"; sourceTree = "<group>"; };
+		8158D478189F6A20004FD9AF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		81D773931893829B00B7219D /* CrumbIBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconManager.h; sourceTree = "<group>"; };
 		81D773941893829B00B7219D /* CrumbIBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconManager.m; sourceTree = "<group>"; };
 		81D7739B1893903E00B7219D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -107,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8158D479189F6A20004FD9AF /* AdSupport.framework in Frameworks */,
 				81D7739E1893904300B7219D /* UIKit.framework in Frameworks */,
 				81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */,
 				8110DA26188DED400097E73B /* Foundation.framework in Frameworks */,
@@ -150,6 +161,7 @@
 		8110DA24188DED400097E73B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8158D478189F6A20004FD9AF /* AdSupport.framework */,
 				81D7739D1893904300B7219D /* UIKit.framework */,
 				81D7739B1893903E00B7219D /* CoreLocation.framework */,
 				8110DA25188DED400097E73B /* Foundation.framework */,
@@ -224,6 +236,10 @@
 				8158D460189DF5C1004FD9AF /* CrumbIBeaconDelegate.h */,
 				8158D461189DF5C1004FD9AF /* CrumbIBeaconDelegate.m */,
 				8158D464189DFF0F004FD9AF /* CrumbIBeaconRegionRangingControlDelegate.h */,
+				8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */,
+				8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */,
+				8158D474189F6377004FD9AF /* CLBeacon+JSON.h */,
+				8158D475189F6377004FD9AF /* CLBeacon+JSON.m */,
 			);
 			name = IBeacon;
 			sourceTree = "<group>";
@@ -243,8 +259,10 @@
 				8158D462189DF5C1004FD9AF /* CrumbIBeaconDelegate.h in Headers */,
 				81FD811F18909ABF009E67C2 /* CrumbManagerDelegate.h in Headers */,
 				81D773A51893A64600B7219D /* CrumbIBeaconConstants.h in Headers */,
+				8158D476189F6377004FD9AF /* CLBeacon+JSON.h in Headers */,
 				8110DA5F188F421C0097E73B /* CrumbGimbalManager.h in Headers */,
 				81FD81231890F1FF009E67C2 /* CrumbConstants.h in Headers */,
+				8158D46A189F45B7004FD9AF /* CrumbIBeaconUploader.h in Headers */,
 				8110DA4C188DEDF90097E73B /* Crumb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +420,8 @@
 				81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */,
 				8158D463189DF5C1004FD9AF /* CrumbIBeaconDelegate.m in Sources */,
 				8110DA60188F421C0097E73B /* CrumbGimbalManager.m in Sources */,
+				8158D46B189F45B7004FD9AF /* CrumbIBeaconUploader.m in Sources */,
+				8158D477189F6377004FD9AF /* CLBeacon+JSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

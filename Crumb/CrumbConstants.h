@@ -12,3 +12,5 @@
 
 #define CRUMB_GENERIC_ERROR_CODE 666
 
+#define CRUMB_BACKEND_URL @"http://10.0.0.7:3000/"
+

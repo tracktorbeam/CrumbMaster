@@ -60,6 +60,7 @@
         _iBeaconManager = [[CLLocationManager alloc] init];
         _iBeaconManager.activityType = CLActivityTypeFitness;
         _iBeaconManager.delegate = _iBeaconDelegate;
+        [[CrumbIBeaconUploader getCrumbIBeaconUploader] adjustUploadThreshold:CRUMB_IBEACON_SIGHTINGS_UPLOAD_THRESHOLD];
     }
     return self;
 }
@@ -143,6 +144,7 @@
     
     [self startMonitoringNewIBeaconRegionsInWhitelist];
     [self stopMonitoringIBeaconRegionsInBlacklist];
+    [self startRangingBeaconsInAllRegions];
     self.successCallback();
 }
 
@@ -194,6 +196,23 @@
             getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
     .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStopMonitoring){
         [self.iBeaconManager stopRangingBeaconsInRegion:beaconRegionToStopMonitoring];
+    });
+}
+
+-(void)startRangingBeaconsInAllRegions{
+    NSLog(@"Currently Monitored Regions : %@",
+          Underscore.array([self.iBeaconManager.monitoredRegions allObjects]).map(^(CLRegion *region) {
+        return region.identifier;
+    }).unwrap);
+    NSLog(@"Currently Ranged Regions : %@",
+          Underscore.array([self.iBeaconManager.rangedRegions allObjects]).map(^(CLRegion *region) {
+        return region.identifier;
+    }).unwrap);
+    
+    Underscore.dict([CrumbIBeaconRegionDirectory
+                     getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:self.iBeaconManager])
+    .each(^(NSString *identifier, CLBeaconRegion *beaconRegionToStartRanging){
+        [self.iBeaconManager startRangingBeaconsInRegion:beaconRegionToStartRanging];
     });
 }
 

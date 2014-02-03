@@ -1,7 +1,8 @@
 platform :ios, '7.0'
 
 pod 'GimbalProximity', '1.10'
-pod 'Underscore.m'
+pod 'Underscore.m', '~> 0.2.1'
+pod 'AFNetworking', '~> 2.1.0'
 
 workspace 'Crumb'
 
