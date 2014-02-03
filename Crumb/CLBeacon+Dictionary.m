@@ -1,16 +1,16 @@
 //
-//  CLBeacon+JSON.m
+//  CLBeacon+Dictionary.m
 //  Crumb
 //
 //  Created by Arpan Ghosh on 2/2/14.
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "CLBeacon+JSON.h"
+#import "CLBeacon+Dictionary.h"
 
-@implementation CLBeacon (JSON)
+@implementation CLBeacon (Dictionary)
 
--(NSDictionary *)toJSON{
+-(NSDictionary *)toDictionary{
     return @{@"uuid" : [self.proximityUUID UUIDString],
              @"major" : self.major,
              @"minor" : self.minor,

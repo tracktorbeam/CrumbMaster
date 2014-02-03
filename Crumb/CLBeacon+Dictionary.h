@@ -1,5 +1,5 @@
 //
-//  CLBeacon+JSON.h
+//  CLBeacon+Dictionary.h
 //  Crumb
 //
 //  Created by Arpan Ghosh on 2/2/14.
@@ -8,8 +8,8 @@
 
 #import "CrumbIBeaconManager.h"
 
-@interface CLBeacon (JSON)
+@interface CLBeacon (Dictionary)
 
--(NSDictionary *)toJSON;
+-(NSDictionary *)toDictionary;
 
 @end
