@@ -9,7 +9,7 @@
 
 #import "CrumbIBeaconManager.h"
 
-
+#warning "This protocol should only allow CrumbIBeaconDelegate to notify CrumbIBeaconManager of events."
 @protocol CrumbIBeaconRegionRangingControlDelegate <NSObject>
 @required
 

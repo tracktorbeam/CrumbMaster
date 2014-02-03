@@ -11,6 +11,7 @@
 @implementation CrumbIBeaconRegionDirectory
 
 + (NSArray *)getBeaconRegionWhitelist{
+#warning "Fetch this from backend as part of config & persist."
     CLBeaconRegion *all = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:CRUMB_IBEACON_REGION_UUID_ALL]
                                                              identifier:CRUMB_IBEACON_REGION_IDENTIFIER_ALL];
     all.notifyEntryStateOnDisplay = YES;
@@ -18,12 +19,12 @@
 }
 
 + (NSArray *)getBeaconRegionBlacklist{
+#warning "Fetch this from backend as part of config & persist."
     return @[[[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:CRUMB_IBEACON_REGION_UUID_EVIL]
                                                 identifier:CRUMB_IBEACON_REGION_IDENTIFIER_EVIL]];
 }
 
 #warning "This method assumes that Crumb is the only entity in the app monitoring any CLBeaconRegions"
-
 + (NSDictionary *)getCurrentlyMonitoredCrumbBeaconRegionsFromBeaconManager:(CLLocationManager *)beaconManager{
     NSMutableDictionary *currentlyMonitoredBeaconRegions =
     [[NSMutableDictionary alloc] init];

@@ -62,23 +62,23 @@
     });
 }
 
-//Do we need to stop monitoring a region ever?
+
+#warning "Figure out which of these errors requires a call to stageBeaconRegionOccupancy"
 - (void)locationManager:(CLLocationManager *)manager
 monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error{
+#warning "Figure out what kind of retry mechanism (if any) needs to be implemented here."
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
         NSLog(@"Error monitoring region %@.\n%@", region.identifier,
               [error localizedDescription]);
     }
 }
 
-//What kind of error results in this callback and do we need to stop ranging because of it?
 - (void)locationManager:(CLLocationManager *)manager
 rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error{
+#warning "Figure out what kind of retry mechanism (if any) needs to be implemented here."
     if ([CrumbIBeaconRegionDirectory isAValidCrumbBeaconRegion:region]){
         NSLog(@"Error ranging beacon region %@.\n%@", region.identifier,
               [error localizedDescription]);
-        [[CrumbIBeaconManager getCrumbManager]
-         stopRangingInBeaconRegion:(CLBeaconRegion *)region];
     }
 }
 
@@ -100,12 +100,14 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
             [[CrumbIBeaconManager getCrumbManager] stopRangingBeacons];
             break;
             
+#warning "Figure out what kind of retry mechanism (if any) needs to be implemented here."
         case kCLErrorRangingFailure: //A general ranging error occurred.
             NSLog(@"Error code : %ld\nError : %@", (long)error.code, [error localizedDescription]);
             //Keep monitoring the Beacon regions, but stop the ranging if it is occurring.
             [[CrumbIBeaconManager getCrumbManager] stopRangingBeacons];
             break;
-            
+
+#warning "Figure out the error handling that needs to be implemented here."
             //Non-permission-revocation or non-capability-disablement related errors.
         case kCLErrorRegionMonitoringFailure: //app has exceeded the maximum number of regions that it can monitor simultaneously.
         case kCLErrorRegionMonitoringSetupDelayed: //Core Location could not initialize the region monitoring feature immediately.

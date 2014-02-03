@@ -8,12 +8,16 @@
 
 #import "CrumbIBeaconUploader.h"
 
+#warning "Need to persist sightings in Core Data backed sighting and operation queue"
+
 @interface CrumbIBeaconUploader()
 
 @property (nonatomic, strong) NSMutableArray *beaconSightingQueue;
 @property (nonatomic) NSInteger uploadThreshold;
-@property (nonatomic, strong) NSMutableDictionary *beaconRegionOccupancy;
 @property (nonatomic, strong) AFHTTPRequestOperationManager *beaconSightingUploadManager;
+
+#warning "This state needs to be maintained in CrumbIBeaconManager."
+@property (nonatomic, strong) NSMutableDictionary *beaconRegionOccupancy;
 
 @end
 
@@ -34,7 +38,8 @@
     if (self){
         _beaconSightingQueue = [[NSMutableArray alloc] init];
         _uploadThreshold = CRUMB_IBEACON_SIGHTINGS_UPLOAD_THRESHOLD;
-        _beaconSightingUploadManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:CRUMB_BACKEND_URL]];
+        _beaconSightingUploadManager =
+        [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:CRUMB_BACKEND_URL]];
         _beaconRegionOccupancy = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -55,9 +60,8 @@
 }
 
 -(void)uploadAllBeaconSightingsSoFar{
-    NSLog(@"Starting beacon sighting upload");
     [self.beaconSightingUploadManager POST:CRUMB_BACKEND_IBEACON_SIGHTINGS_UPLOAD_PATH
-                                parameters:[self dequeueSightingsAndCreateUploadRequestParamters]
+                                parameters:[self dequeueSightingsAndPackageAsRequestParamters]
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        NSLog(@"Success : Uploaded beacon sightings");
     }
@@ -77,7 +81,7 @@
     }
 }
 
--(NSDictionary *)dequeueSightingsAndCreateUploadRequestParamters{
+-(NSDictionary *)dequeueSightingsAndPackageAsRequestParamters{
     NSArray *sightings = Underscore.array(self.beaconSightingQueue)
     .map(^(CLBeacon *beaconSighting){
         return [beaconSighting toJSON];
