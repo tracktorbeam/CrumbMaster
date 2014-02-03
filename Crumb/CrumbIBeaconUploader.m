@@ -36,11 +36,30 @@
 - (instancetype)init{
     self = [super init];
     if (self){
-        _beaconSightingQueue = [[NSMutableArray alloc] init];
+        _beaconSightingQueue = [[NSMutableArray alloc] initWithCapacity:CRUMB_IBEACON_SIGHTINGS_UPLOAD_THRESHOLD * 2];
         _uploadThreshold = CRUMB_IBEACON_SIGHTINGS_UPLOAD_THRESHOLD;
+        _beaconRegionOccupancy = [[NSMutableDictionary alloc] init];
+        
         _beaconSightingUploadManager =
         [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:CRUMB_BACKEND_URL]];
-        _beaconRegionOccupancy = [[NSMutableDictionary alloc] init];
+        NSOperationQueue *beaconSightingUploaderOperationQueue = _beaconSightingUploadManager.operationQueue;
+        [_beaconSightingUploadManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    NSLog(@"Network is reachable");
+                    [beaconSightingUploaderOperationQueue setSuspended:NO];
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                case AFNetworkReachabilityStatusUnknown:
+                default:
+                    NSLog(@"Network is not reachable. Suspending queue.");
+                    [beaconSightingUploaderOperationQueue setSuspended:YES];
+                    break;
+            }
+        }];
+        [_beaconSightingUploadManager.reachabilityManager startMonitoring];
+        
     }
     return self;
 }
@@ -82,9 +101,10 @@
 }
 
 -(NSDictionary *)dequeueSightingsAndPackageAsRequestParamters{
+    
     NSArray *sightings = Underscore.array(self.beaconSightingQueue)
     .map(^(CLBeacon *beaconSighting){
-        return [beaconSighting toJSON];
+        return [beaconSighting toDictionary];
     }).unwrap;
     
     [self.beaconSightingQueue removeAllObjects];
