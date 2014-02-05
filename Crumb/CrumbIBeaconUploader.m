@@ -65,7 +65,7 @@
 }
 
 -(void)stageBeaconSighting:(CLBeacon *)beacon{
-    [self.beaconSightingQueue addObject:beacon];
+    [self.beaconSightingQueue addObject:[[CrumbIBeaconSighting alloc] initWithBeacon:beacon]];
     if ([self.beaconSightingQueue count] > self.uploadThreshold){
         [self uploadAllBeaconSightingsSoFar];
     }
@@ -103,13 +103,13 @@
 -(NSDictionary *)dequeueSightingsAndPackageAsRequestParamters{
     
     NSArray *sightings = Underscore.array(self.beaconSightingQueue)
-    .map(^(CLBeacon *beaconSighting){
+    .map(^(CrumbIBeaconSighting *beaconSighting){
         return [beaconSighting toDictionary];
     }).unwrap;
     
     [self.beaconSightingQueue removeAllObjects];
     
-    return @{@"crumb_id" : [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString],
+    return @{@"consumer_id" : [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString],
              @"sightings" : sightings};
 }
 

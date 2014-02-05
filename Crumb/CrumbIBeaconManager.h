@@ -21,7 +21,7 @@
 #import "CrumbIBeaconDelegate.h"
 #import "CrumbIBeaconRegionRangingControlDelegate.h"
 #import "CrumbIBeaconUploader.h"
-#import "CLBeacon+Dictionary.h"
+#import "CrumbIBeaconSighting.h"
 
 @interface CrumbIBeaconManager : NSObject <CrumbManagerDelegate, CrumbIBeaconRegionRangingControlDelegate>
 

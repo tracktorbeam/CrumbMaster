@@ -40,8 +40,9 @@
 		8158D46A189F45B7004FD9AF /* CrumbIBeaconUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */; };
 		8158D46B189F45B7004FD9AF /* CrumbIBeaconUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */; };
 		8158D479189F6A20004FD9AF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8158D478189F6A20004FD9AF /* AdSupport.framework */; };
-		8158D47C18A03842004FD9AF /* CLBeacon+Dictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D47A18A03842004FD9AF /* CLBeacon+Dictionary.h */; };
-		8158D47D18A03842004FD9AF /* CLBeacon+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D47B18A03842004FD9AF /* CLBeacon+Dictionary.m */; };
+		8158D48018A06682004FD9AF /* CrumbIBeaconSighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 8158D47E18A06682004FD9AF /* CrumbIBeaconSighting.h */; };
+		8158D48118A06682004FD9AF /* CrumbIBeaconSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8158D47F18A06682004FD9AF /* CrumbIBeaconSighting.m */; };
+		8158D48318A231FD004FD9AF /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8158D48218A231FD004FD9AF /* PassKit.framework */; };
 		81D773951893829B00B7219D /* CrumbIBeaconManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D773931893829B00B7219D /* CrumbIBeaconManager.h */; };
 		81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D773941893829B00B7219D /* CrumbIBeaconManager.m */; };
 		81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7739B1893903E00B7219D /* CoreLocation.framework */; };
@@ -95,8 +96,9 @@
 		8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconUploader.h; sourceTree = "<group>"; };
 		8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconUploader.m; sourceTree = "<group>"; };
 		8158D478189F6A20004FD9AF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		8158D47A18A03842004FD9AF /* CLBeacon+Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLBeacon+Dictionary.h"; sourceTree = "<group>"; };
-		8158D47B18A03842004FD9AF /* CLBeacon+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLBeacon+Dictionary.m"; sourceTree = "<group>"; };
+		8158D47E18A06682004FD9AF /* CrumbIBeaconSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconSighting.h; sourceTree = "<group>"; };
+		8158D47F18A06682004FD9AF /* CrumbIBeaconSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconSighting.m; sourceTree = "<group>"; };
+		8158D48218A231FD004FD9AF /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		81D773931893829B00B7219D /* CrumbIBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbIBeaconManager.h; sourceTree = "<group>"; };
 		81D773941893829B00B7219D /* CrumbIBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbIBeaconManager.m; sourceTree = "<group>"; };
 		81D7739B1893903E00B7219D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -117,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8158D48318A231FD004FD9AF /* PassKit.framework in Frameworks */,
 				8158D479189F6A20004FD9AF /* AdSupport.framework in Frameworks */,
 				81D7739E1893904300B7219D /* UIKit.framework in Frameworks */,
 				81D7739C1893903E00B7219D /* CoreLocation.framework in Frameworks */,
@@ -161,6 +164,7 @@
 		8110DA24188DED400097E73B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8158D48218A231FD004FD9AF /* PassKit.framework */,
 				8158D478189F6A20004FD9AF /* AdSupport.framework */,
 				81D7739D1893904300B7219D /* UIKit.framework */,
 				81D7739B1893903E00B7219D /* CoreLocation.framework */,
@@ -228,8 +232,6 @@
 		81FD812018909E3D009E67C2 /* IBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				8158D47A18A03842004FD9AF /* CLBeacon+Dictionary.h */,
-				8158D47B18A03842004FD9AF /* CLBeacon+Dictionary.m */,
 				81D773931893829B00B7219D /* CrumbIBeaconManager.h */,
 				81D773941893829B00B7219D /* CrumbIBeaconManager.m */,
 				81D7739F1893A58D00B7219D /* CrumbIBeaconRegionDirectory.h */,
@@ -240,6 +242,8 @@
 				8158D464189DFF0F004FD9AF /* CrumbIBeaconRegionRangingControlDelegate.h */,
 				8158D468189F45B7004FD9AF /* CrumbIBeaconUploader.h */,
 				8158D469189F45B7004FD9AF /* CrumbIBeaconUploader.m */,
+				8158D47E18A06682004FD9AF /* CrumbIBeaconSighting.h */,
+				8158D47F18A06682004FD9AF /* CrumbIBeaconSighting.m */,
 			);
 			name = IBeacon;
 			sourceTree = "<group>";
@@ -252,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D773951893829B00B7219D /* CrumbIBeaconManager.h in Headers */,
-				8158D47C18A03842004FD9AF /* CLBeacon+Dictionary.h in Headers */,
+				8158D48018A06682004FD9AF /* CrumbIBeaconSighting.h in Headers */,
 				8110DA6B188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.h in Headers */,
 				81FD81271890F2A1009E67C2 /* CrumbManagerGenerator.h in Headers */,
 				8110DA63188F441A0097E73B /* CrumbGimbalConstants.h in Headers */,
@@ -413,13 +417,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8158D48118A06682004FD9AF /* CrumbIBeaconSighting.m in Sources */,
 				81FD811D1890971A009E67C2 /* Crumb.m in Sources */,
 				81D773A21893A58D00B7219D /* CrumbIBeaconRegionDirectory.m in Sources */,
 				81FD81281890F2A1009E67C2 /* CrumbManagerGenerator.m in Sources */,
 				8110DA6C188F4AAA0097E73B /* CrumbGimbalBeaconDelegate.m in Sources */,
 				81D773961893829B00B7219D /* CrumbIBeaconManager.m in Sources */,
 				8158D463189DF5C1004FD9AF /* CrumbIBeaconDelegate.m in Sources */,
-				8158D47D18A03842004FD9AF /* CLBeacon+Dictionary.m in Sources */,
 				8110DA60188F421C0097E73B /* CrumbGimbalManager.m in Sources */,
 				8158D46B189F45B7004FD9AF /* CrumbIBeaconUploader.m in Sources */,
 			);

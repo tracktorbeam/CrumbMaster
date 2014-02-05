@@ -11,6 +11,7 @@
 #import "Crumb.h"
 #import "CrumbManagerDelegate.h"
 #import "CrumbManagerGenerator.h"
+#import "CrumbPassManager.h"
 
 
 @implementation Crumb
@@ -26,6 +27,8 @@
             NSLog(@"%@ : Service failed to start with error :\n%@", [crumbManager serviceName], error);
         }];
     });
+    
+    [CrumbPassManager getCrumbPassManager];
 }
 
 + (void) stopSweeping{
